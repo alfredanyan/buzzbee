@@ -16,7 +16,7 @@
         <div class="text-subtitle">Thursday, 9th September</div>
       </div>
     </q-header>
-    <q-img class="header-image absolute-top" src="assets/mountains.jpg"></q-img>
+    <q-img class="header-image absolute-top" src="../assets/mountains.jpg"></q-img>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
@@ -38,6 +38,7 @@
 
 <script>
 import EssentialLink from "components/EssentialLink.vue";
+import { date } from 'quasar';
 
 const linksList = [
   {
@@ -106,3 +107,12 @@ export default defineComponent({
   },
 });
 </script>
+
+<style lang="scss">
+  .header-image {
+    height: 100%;
+    z-index: -1;
+    opacity: 0.2;
+    filter: grayscale(100%);
+  }
+</style>
