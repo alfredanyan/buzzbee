@@ -15,79 +15,70 @@
         <div class="text-h3">BuzzBee</div>
         <div class="text-subtitle">{{ todaysDate }}</div>
       </div>
+    <q-img
+      class="header-image absolute-top"
+      src="../assets/mountains.jpg"
+    ></q-img>
     </q-header>
-    <q-img class="header-image absolute-top" src="../assets/mountains.jpg"></q-img>
-<q-drawer
-        v-model="leftDrawerOpen"
-        show-if-above
-        :width="200"
-        :breakpoint="600"
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      :width="200"
+      :breakpoint="600"
+    >
+      <q-scroll-area
+        style="
+          height: calc(100% - 183.92px);
+          margin-top: 183.92px;
+          border-right: 1px solid #ddd;
+        "
       >
-        <q-scroll-area style="height: calc(100% - 150px); margin-top: 150px; border-right: 1px solid #ddd">
-          <q-list padding>
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="inbox" />
-              </q-item-section>
+        <q-list padding>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="list" />
+            </q-item-section>
 
-              <q-item-section>
-                Inbox
-              </q-item-section>
-            </q-item>
+            <q-item-section> Todo </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple>
+            <q-item-section avatar>
+              <q-icon name="help" />
+            </q-item-section>
 
-            <q-item active clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="star" />
-              </q-item-section>
+            <q-item-section> Help </q-item-section>
+          </q-item>
+        </q-list>
+      </q-scroll-area>
 
-              <q-item-section>
-                Star
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="send" />
-              </q-item-section>
-
-              <q-item-section>
-                Send
-              </q-item-section>
-            </q-item>
-
-            <q-item clickable v-ripple>
-              <q-item-section avatar>
-                <q-icon name="drafts" />
-              </q-item-section>
-
-              <q-item-section>
-                Drafts
-              </q-item-section>
-            </q-item>
-          </q-list>
-        </q-scroll-area>
-
-        <q-img class="absolute-top" src="../assets/mountains.jpg" style="height: 150px">
-          <div class="absolute-bottom bg-transparent">
-            <q-avatar size="56px" class="q-mb-sm">
-              <img src="https://afrika-kommt.de/wp-content/uploads/2020/10/Anyan-Alfred.jpg">
-            </q-avatar>
-            <div class="text-weight-bold">Alfred Anyan</div>
-            <div>@alfredanyan</div>
-          </div>
-        </q-img>
-      </q-drawer>
-
+      <q-img
+        class="absolute-top"
+        src="../assets/mountains.jpg"
+        style="height: 183.98px"
+      >
+        <div class="absolute-bottom bg-transparent">
+          <q-avatar size="56px" class="q-mb-sm">
+            <img
+              src="https://afrika-kommt.de/wp-content/uploads/2020/10/Anyan-Alfred.jpg"
+            />
+          </q-avatar>
+          <div class="text-weight-bold">Alfred Anyan</div>
+          <div>@alfredanyan</div>
+        </div>
+      </q-img>
+    </q-drawer>
 
     <q-page-container>
-      <router-view />
+      <keep-alive>
+        <router-view />
+      </keep-alive>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import EssentialLink from "components/EssentialLink.vue";
-import { date } from 'quasar';
+import { date } from "quasar";
 
 const linksList = [
   {
@@ -157,19 +148,19 @@ export default defineComponent({
 
   computed: {
     todaysDate() {
-      const timeStamp = Date.now()
-      const formattedString = date.formatDate(timeStamp, 'dddd D MMMM')
+      const timeStamp = Date.now();
+      const formattedString = date.formatDate(timeStamp, "dddd D MMMM");
       return formattedString;
-    }
-  }
+    },
+  },
 });
 </script>
 
 <style lang="scss">
-  .header-image {
-    height: 100%;
-    z-index: -1;
-    opacity: 0.2;
-    filter: grayscale(100%);
-  }
+.header-image {
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: grayscale(100%);
+}
 </style>
